@@ -52,3 +52,36 @@ function aleser_ocultar_version() {
 	remove_action( 'wp_head', 'wp_generator' );
 }
 add_action( 'init', 'aleser_ocultar_version' );
+
+
+/**
+ * Petición 6: el logotipo de la pantalla de acceso enlaza a la portada del blog.
+ *
+ * @return string URL de la portada.
+ */
+function aleser_login_headerurl() {
+	return home_url( '/' );
+}
+add_filter( 'login_headerurl', 'aleser_login_headerurl' );
+
+/**
+ * Petición 6: texto del enlace del logotipo.
+ *
+ * @return string Nombre del blog.
+ */
+function aleser_login_headertext() {
+	return get_bloginfo( 'name' );
+}
+add_filter( 'login_headertext', 'aleser_login_headertext' );
+
+/**
+ * Petición 6: aviso sobre el formulario de acceso.
+ *
+ * @param string $message Mensaje actual de la pantalla de acceso.
+ * @return string Mensaje con el aviso añadido.
+ */
+function aleser_login_message( $message ) {
+	$aviso = '<p class="message">Acceso restringido al equipo de <em>' . esc_html( get_bloginfo( 'name' ) ) . '</em></p>';
+	return $message . $aviso;
+}
+add_filter( 'login_message', 'aleser_login_message' );
