@@ -43,3 +43,12 @@ function aleser_anio_shortcode() {
 	return esc_html( wp_date( 'Y' ) );
 }
 add_shortcode( 'anio', 'aleser_anio_shortcode' );
+
+
+/**
+ * Petición 5: quita la etiqueta generator del <head> de las páginas.
+ */
+function aleser_ocultar_version() {
+	remove_action( 'wp_head', 'wp_generator' );
+}
+add_action( 'init', 'aleser_ocultar_version' );
