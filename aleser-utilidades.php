@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       aleser-utilidades
  * Description:       Utilidades propias del blog: caja de contacto en las entradas, código corto [anio], ocultación de la versión de WordPress y pantalla de acceso personalizada.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Alejandro Serrano Cabrera
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -85,3 +85,8 @@ function aleser_login_message( $message ) {
 	return $message . $aviso;
 }
 add_filter( 'login_message', 'aleser_login_message' );
+
+/**
+ * Oculta también la versión de WordPress en el feed RSS.
+ */
+add_filter( 'the_generator', '__return_empty_string' );
