@@ -33,3 +33,13 @@ function aleser_caja_contacto( $content ) {
 	return $content;
 }
 add_filter( 'the_content', 'aleser_caja_contacto' );
+
+/**
+ * Petición 4: código corto [anio] que devuelve el año actual.
+ *
+ * @return string Año actual de cuatro cifras.
+ */
+function aleser_anio_shortcode() {
+	return esc_html( wp_date( 'Y' ) );
+}
+add_shortcode( 'anio', 'aleser_anio_shortcode' );
