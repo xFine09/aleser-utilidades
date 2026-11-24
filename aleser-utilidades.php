@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string Contenido con la caja añadida cuando procede.
  */
 function aleser_caja_contacto( $content ) {
-	if ( is_singular( 'post' ) && in_the_loop() && is_main_query() ) {
+	if ( is_singular( 'post' ) && is_main_query() && get_the_ID() === get_queried_object_id() ) {
 		$caja  = '<div class="aleser-caja-contacto">';
 		$caja .= '<p>¿Te ha gustado? Escríbeme desde ';
 		$caja .= '<a href="' . esc_url( get_permalink( get_page_by_path( 'contacto' ) ) ) . '">Contacto</a></p>';

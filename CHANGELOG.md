@@ -1,5 +1,9 @@
 # Changelog
 
+## [Sin publicar]
+### Corregido
+- La caja de contacto no aparecía en temas de bloques porque `in_the_loop()` valía falso; ahora se comprueba que el contenido es el de la entrada abierta. Verificado por CP-04.
+
 ## [1.1.0] - 2026-11-23
 ### Añadido
 - Filtro `the_generator` para ocultar la versión de WordPress también en el feed RSS. Verificado por CP-06.
